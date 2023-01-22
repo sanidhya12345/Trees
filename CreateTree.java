@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class CreateTree {
-    static Scanner sc=null;
-    public static TreeNode createTree(){
+    public static TreeNode createTree(Scanner sc){
         TreeNode root=null;
         System.out.println("Enter data:-");
         int data=sc.nextInt();
@@ -11,9 +10,9 @@ public class CreateTree {
         }
         root=new TreeNode(data);
         System.out.println("Enter left for:- "+data);
-        root.left=createTree();
+        root.left=createTree(sc);
         System.out.println("Enter right for:- "+data);
-        root.right=createTree();
+        root.right=createTree(sc);
         return root;
     }
     public static void preOrder(TreeNode node){
@@ -23,8 +22,8 @@ public class CreateTree {
         preOrder(node.right);
     }
     public static void main(String[] args) {
-        sc=new Scanner(System.in);
-        TreeNode root=createTree();
+        Scanner sc=new Scanner(System.in);
+        TreeNode root=createTree(sc);
         preOrder(root);
     }
 }
